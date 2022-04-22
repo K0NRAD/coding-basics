@@ -81,8 +81,60 @@ Beispiel 3:
     Da 4193 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis 4193.
  */
 public class OO1Solution {
+    long ergebnis = 0;
+    boolean alreadyReadNumber = false;
+    boolean isAlreadyReadSign = false;
+    boolean isErgebnisNegativ = false;
+
+
 
     public int atoi(String txt) {
-        return -1;
+
+        for (int i = 0; i < txt.length(); i++) {
+            char chr = txt.substring(i, i + 1).charAt(0);
+            if (chr == ' ' && (alreadyReadNumber || isAlreadyReadSign)) {
+                break;
+            } else if (chr == '+' || chr == '-') {
+                if (isAlreadyReadSign) {
+                    break;
+                } else if (chr == '-' && !alreadyReadNumber) {
+                    isErgebnisNegativ = true;
+                    isAlreadyReadSign = true;
+                } else if (chr == '+' && !alreadyReadNumber) {
+                    isAlreadyReadSign = true;
+                } else {
+                    break;
+                }
+            } else if ((chr > '9' || chr < '0') && chr != ' ') {
+                break;
+            } else{
+                ergebnis = ergebnis * 10 + chr - '0';
+                alreadyReadNumber = true;
+            }
+        }
+
+        if(isErgebnisNegativ) {
+            ergebnis = -ergebnis;
+        }
+        if (ergebnis > Integer.MAX_VALUE) {
+            ergebnis = Integer.MAX_VALUE;
+        } else if (ergebnis < Integer.MIN_VALUE) {
+            ergebnis = Integer.MIN_VALUE;
+        }
+
+        return (int) this.ergebnis;
+
+}
+
+    public static void main(String[] args) {
+        OO1Solution solution = new OO1Solution();
+        System.out.println(solution.atoi("  -799"));
+
+
     }
 }
+
+
+
+
+
