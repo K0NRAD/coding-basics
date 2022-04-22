@@ -24,61 +24,61 @@ StrintToInteger
 
         Gebe die ganze Zahl als Endergebnis zurück.
 
-Anmerkung:
+    Anmerkung:
 
-    Nur das Leerzeichen ' ' ' als Leerzeichen betrachtet.
-    Ignoriere keine anderen Zeichen als das führende Leerzeichen oder den Rest der Zeichenfolge nach den Ziffern.
+        Nur das Leerzeichen ' ' ' als Leerzeichen betrachtet.
+        Ignoriere keine anderen Zeichen als das führende Leerzeichen oder den Rest der Zeichenfolge nach den Ziffern.
 
-Beispiel 1:
+    Beispiel 1:
 
-    Input:  txt = "42"
-    Output: 42
+        Input:  txt = "42"
+        Output: 42
 
-    Erläuterung: Die unterstrichenen Zeichen sind das, was eingelesen wird, das Caret-Zeichen
-                 ist die aktuelle Leseposition.
+        Erläuterung: Die unterstrichenen Zeichen sind das, was eingelesen wird, das Caret-Zeichen
+                     ist die aktuelle Leseposition.
 
-    Step 1: "42" (es werden keine Zeichen gelesen, da kein führendes Leerzeichen vorhanden ist)
-             ^
-    Step 2: "42" (keine Zeichen gelesen, da weder '-' noch ' ')
-             ^
-    Step 3: "42" („42“ wird eingelesen)
-             ^
-    Die geparste Ganzzahl ist 42.
-
-    Da 42 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis 42.
-
-Beispiel 2:
-
-    Input:  txt = "   -42"
-    Output: -42
-
-    Explanation:
-
-    Step 1: "   -42" (Führende Leerzeichen werden gelesen und ignoriert)
-                ^
-    Step 2: "   -42" ('-' wird gelesen, also sollte das Ergebnis negativ sein)
+        Step 1: "42" (es werden keine Zeichen gelesen, da kein führendes Leerzeichen vorhanden ist)
                  ^
-    Step 3: "   -42" ("42" wird eingelesen)
-                   ^
-    Die geparste Ganzzahl ist -42.
-    Da -42 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis -42.
+        Step 2: "42" (keine Zeichen gelesen, da weder '-' noch ' ')
+                 ^
+        Step 3: "42" („42“ wird eingelesen)
+                 ^
+        Die geparste Ganzzahl ist 42.
 
-Beispiel 3:
+        Da 42 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis 42.
 
-    Input: txt = "4193 with words"
-    Output: 4193
+    Beispiel 2:
 
-    Erläuterung:
+        Input:  txt = "   -42"
+        Output: -42
 
-    Step 1: "4193 with words" (es werden keine Zeichen gelesen, da kein führendes Leerzeichen vorhanden ist)
-             ^
-    Step 2: "4193 with words" (es werden keine Zeichen gelesen, da weder '-' noch ' ' vorhanden ist)
-             ^
-    Step 3: "4193 with words" ("4193" wird eingelesen; das Lesen stoppt, weil das nächste Zeichen keine Ziffer ist)
+        Explanation:
 
-    Die geparste Ganzzahl ist 4193.
+        Step 1: "   -42" (Führende Leerzeichen werden gelesen und ignoriert)
+                    ^
+        Step 2: "   -42" ('-' wird gelesen, also sollte das Ergebnis negativ sein)
+                     ^
+        Step 3: "   -42" ("42" wird eingelesen)
+                       ^
+        Die geparste Ganzzahl ist -42.
+        Da -42 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis -42.
 
-    Da 4193 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis 4193.
+    Beispiel 3:
+
+        Input: txt = "4193 with words"
+        Output: 4193
+
+        Erläuterung:
+
+        Step 1: "4193 with words" (es werden keine Zeichen gelesen, da kein führendes Leerzeichen vorhanden ist)
+                 ^
+        Step 2: "4193 with words" (es werden keine Zeichen gelesen, da weder '-' noch ' ' vorhanden ist)
+                 ^
+        Step 3: "4193 with words" ("4193" wird eingelesen; das Lesen stoppt, weil das nächste Zeichen keine Ziffer ist)
+
+        Die geparste Ganzzahl ist 4193.
+
+        Da 4193 im Bereich [-2^31, 2^31 - 1] liegt, ist das Endergebnis 4193.
  */
 public class OO1Solution {
 
