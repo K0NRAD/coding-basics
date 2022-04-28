@@ -59,7 +59,29 @@ Anzahl der Segmente in einem String
 
 public class OO2Solution {
 
+
     public int countSegments(String s) {
-        return -1;
+        int segmente = 0;
+        boolean isSomethingAlreadyRead = false;
+
+        for (int i = 0, n = s.length(); i < n; i++) {
+            char chr = s.charAt(i);
+            if (chr == ' ' && isSomethingAlreadyRead ) {
+                segmente++;
+                isSomethingAlreadyRead = false;
+            } else if (chr != ' ') {
+                isSomethingAlreadyRead = true;
+            }
+        }
+        if (isSomethingAlreadyRead) {
+            segmente++;
+        }
+        return segmente;
     }
+
+    public static void main(String[] args) {
+        OO2Solution oo2Solution = new OO2Solution();
+        System.out.println(oo2Solution.countSegments("  f"));
+    }
+
 }
